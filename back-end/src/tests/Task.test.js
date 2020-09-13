@@ -97,23 +97,12 @@ describe('Task Test', () => {
             .send(data)
             .expect(200)
             .then(async(res) => {
-                expect(res.body._id).toBeTruthy()
-                expect(res.body.name).toBe(data.name)
-                expect(res.body.customer).toBe(data.customer)
-                expect(res.body.due_date).toBe(data.due_date)
-                expect(res.body.legal_date).toBe(data.legal_date)
-                expect(res.body.fine).toBe(data.fine)
+                expect(res.body.result).toBe(true)
+                expect(res.body.message).toBe('Task created successfully')
 
-                const task = await Task.findOne({ _id: res.body._id })
-                expect(task).toBeTruthy()
-                expect(task.name).toBe(data.name)
-                expect(task.customer).toBe(data.customer)
-                let date = new Date(data.due_date)
-                expect(task.due_date.getTime()).toBe(date.getTime())
-                expect(task.fine).toBe(data.fine)
-
-                await Task.deleteOne({ _id: res.body._id })
             })
+        
+        await Task.deleteOne({ name: data.name })
     })
 
     it('Should PATCH Task Route', async() => {
@@ -150,21 +139,9 @@ describe('Task Test', () => {
             .send(data)
             .expect(200)
             .then(async(res) => {
-                expect(res.body._id).toBe(_id)
-                expect(res.body.name).toBe(data.name)
-                expect(res.body.customer).toBe(data.customer)
-                expect(res.body.due_date).toBe(data.due_date)
-                expect(res.body.legal_date).toBe(data.legal_date)
-                expect(res.body.fine).toBe(data.fine)
-
-                const task = await Task.findOne({ _id: res.body._id })
-                expect(task).toBeTruthy()
-                expect(task.name).toBe(data.name)
-                expect(task.customer).toBe(data.customer)
-                let date = new Date(data.due_date)
-                expect(task.due_date.getTime()).toBe(date.getTime())
-                expect(task.fine).toBe(data.fine)
-
+                expect(res.body.result).toBe(true)
+                expect(res.body.id).toBe(_id)
+                expect(res.body.message).toBe('Task updated successfully')
             })
 
         await Task.findByIdAndDelete({ _id: _id })
@@ -205,6 +182,7 @@ describe('Task Test', () => {
             .expect(200)
             .then(async(res) => {
                 expect(res.body.result).toBe(true)
+                expect(res.body.message).toBe('Task removed successfully')
             })
     })
 })
