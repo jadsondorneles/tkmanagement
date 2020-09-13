@@ -38,10 +38,13 @@ routes.post('/task', async(req, res) => {
         fine: fine
     })
 
-    return res.json(task)
+    return res.json({
+        result: true,
+        message: 'Task created successfully'
+    })
 })
 
-//PUT: Update specific task
+//PATCH: Update specific task
 routes.patch('/task/:id', async(req, res) => {
     const { name, customer, due_date, legal_date, fine } = req.body
 
@@ -61,7 +64,10 @@ routes.patch('/task/:id', async(req, res) => {
         }
     )
 
-    return res.json(task)
+    return res.json({
+        result: true,
+        message: 'Task updated successfully'
+    })
 })
 
 //DELETE: Exclude specific task
