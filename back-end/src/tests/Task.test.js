@@ -101,7 +101,7 @@ describe('Task Test', () => {
                 expect(res.body.message).toBe('Task created successfully')
 
             })
-        
+
         await Task.deleteOne({ name: data.name })
     })
 
@@ -184,5 +184,39 @@ describe('Task Test', () => {
                 expect(res.body.result).toBe(true)
                 expect(res.body.message).toBe('Task removed successfully')
             })
+    })
+
+    it('Should Post Document Task Route', async() => {
+        let data = {
+            name: uuid.v4(),
+            customer: "CustomerTest",
+            due_date: "2020-09-19T00:00:00.000Z",
+            legal_date: "2020-09-20T00:00:00.000Z",
+            fine: false
+        }
+
+        const task = await Task.create({
+            name: data.name,
+            customer: data.customer,
+            due_date: data.due_date,
+            legal_date: data.legal_date,
+            fine: data.fine
+        })
+
+        let _id
+        await request(app)
+            .get('/api/task')
+            .then(res => {
+                res.body.map(obj => {
+                    if (obj.name === data.name)
+                        _id = obj._id
+                })
+            })
+
+        await request(app)
+            .post(`/task/document/${_id}`)
+            .attach('file', 'src/tests/assets/img.png')
+
+        await Task.deleteOne({ name: data.name })
     })
 })
