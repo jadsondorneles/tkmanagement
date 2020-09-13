@@ -90,20 +90,24 @@ routes.post('/task/document/:id', multer(multerConfig).single('file'), async(req
                 documents: {
                     id: uuid.v4(),
                     key: key,
-                    url: process.env.APP_URL
+                    url: `${process.env.APP_URL}/files/uploads/${key}`
                 }
             }
         }, { safe: true, upsert: true },
         (err, doc) => {
             if (err) {
-                console.log(err)
+                return res.json({
+                    result: false,
+                    message: `Error. ${err}`
+                })
             } else {
-                console.log(doc)
+                return res.json({
+                    result: true,
+                    message: 'Document uploaded successfully'
+                })
             }
         }
     )
-
-    return res.json(task)
 })
 
 //DELETE: Exclude document of task
