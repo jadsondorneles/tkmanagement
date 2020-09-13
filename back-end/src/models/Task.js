@@ -17,6 +17,10 @@ const TaskSchema = new Schema({
         type: Date,
         required: true
     },
+    status: {
+        type: String,
+        required: true
+    },
     fine: {
         type: Boolean,
         required: true

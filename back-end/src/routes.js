@@ -22,19 +22,12 @@ routes.get('/task/:id', async(req, res) => {
 routes.post('/task', async(req, res) => {
     const { name, customer, due_date, legal_date, fine } = req.body
 
-    const nameExists = await Task.findOne({ name: name })
-    if (nameExists) {
-        return res.json({
-            result: false,
-            message: `A task with this name already exists, please create with a different name`
-        })
-    }
-
     const task = await Task.create({
         name: name,
         customer: customer,
         due_date: due_date,
         legal_date: legal_date,
+        status: chkStatus(due_date, legal_date, fine),
         fine: fine
     })
 
@@ -53,6 +46,7 @@ routes.patch('/task/:id', async(req, res) => {
             customer: customer,
             due_date: due_date,
             legal_date: legal_date,
+            status: chkStatus(due_date, legal_date, fine),
             fine: fine
         }, { safe: true, upsert: true },
         (err, doc) => {
@@ -132,5 +126,23 @@ routes.delete('/task/document/:id/:id_doc', async(req, res) => {
         })
     }
 })
+
+function chkStatus(due_date, legal_date, fine) {
+    let dateToday = new Date()
+    let date_due_date = new Date(due_date)
+    let date_legal_date = new Date(legal_date)
+
+    console.log(`datetoday: ${dateToday}`)
+    console.log(`date_due_date: ${date_due_date}`)
+    console.log(`date_legal_date: ${date_legal_date}`)
+
+    if (date_legal_date < dateToday && fine) {
+        return 'fine'
+    } else if (date_due_date < dateToday) {
+        return 'overdue'
+    } else if (date_due_date >= dateToday && date_legal_date >= dateToday && !fine) {
+        return 'ok'
+    }
+}
 
 module.exports = routes

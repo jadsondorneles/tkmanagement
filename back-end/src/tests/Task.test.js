@@ -10,6 +10,7 @@ describe('Task Test', () => {
             customer: "CustomerTest",
             due_date: "2020-09-19T00:00:00.000Z",
             legal_date: "2020-09-20T00:00:00.000Z",
+            status: 'ok',
             fine: false
         }
 
@@ -18,6 +19,7 @@ describe('Task Test', () => {
             customer: data.customer,
             due_date: data.due_date,
             legal_date: data.legal_date,
+            status: data.status,
             fine: data.fine
         })
 
@@ -33,6 +35,7 @@ describe('Task Test', () => {
                         expect(obj.customer).toBe(data.customer)
                         expect(obj.due_date).toBe(data.due_date)
                         expect(obj.legal_date).toBe(data.legal_date)
+                        expect(obj.status).toBe(data.status)
                         expect(obj.fine).toBe(data.fine)
                     }
                 })
@@ -47,6 +50,7 @@ describe('Task Test', () => {
             customer: "CustomerTest",
             due_date: "2020-09-19T00:00:00.000Z",
             legal_date: "2020-09-20T00:00:00.000Z",
+            status: 'ok',
             fine: false
         }
 
@@ -55,6 +59,7 @@ describe('Task Test', () => {
             customer: data.customer,
             due_date: data.due_date,
             legal_date: data.legal_date,
+            status: data.status,
             fine: data.fine
         })
 
@@ -77,6 +82,7 @@ describe('Task Test', () => {
                 expect(res.body.customer).toBe(data.customer)
                 expect(res.body.due_date).toBe(data.due_date)
                 expect(res.body.legal_date).toBe(data.legal_date)
+                expect(res.body.status).toBe(data.status)
                 expect(res.body.fine).toBe(data.fine)
             })
 
@@ -112,6 +118,7 @@ describe('Task Test', () => {
             customer: "CustomerTest",
             due_date: "2020-05-10T00:00:00.000Z",
             legal_date: "2020-05-22T00:00:00.000Z",
+            status: 'ok',
             fine: true
         })
 
@@ -120,6 +127,7 @@ describe('Task Test', () => {
             customer: "CustomerPutTest",
             due_date: "2020-09-19T00:00:00.000Z",
             legal_date: "2020-09-20T00:00:00.000Z",
+            status: 'overdue',
             fine: false
         }
 
@@ -153,6 +161,7 @@ describe('Task Test', () => {
             customer: "CustomerTest",
             due_date: "2020-09-19T00:00:00.000Z",
             legal_date: "2020-09-20T00:00:00.000Z",
+            status: 'ok',
             fine: false
         }
 
@@ -161,6 +170,7 @@ describe('Task Test', () => {
             customer: data.customer,
             due_date: data.due_date,
             legal_date: data.legal_date,
+            status: data.status,
             fine: data.fine
         })
 
@@ -192,6 +202,7 @@ describe('Task Test', () => {
             customer: "CustomerTest",
             due_date: "2020-09-19T00:00:00.000Z",
             legal_date: "2020-09-20T00:00:00.000Z",
+            status: "ok",
             fine: false
         }
 
@@ -200,6 +211,7 @@ describe('Task Test', () => {
             customer: data.customer,
             due_date: data.due_date,
             legal_date: data.legal_date,
+            status: data.status,
             fine: data.fine
         })
 
