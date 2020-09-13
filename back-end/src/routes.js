@@ -1,7 +1,7 @@
 const routes = require('express').Router()
 const multer = require('multer')
 const multerConfig = require('./config/multer')
-const webconfig = require('../webconfig.json')
+require('dotenv').config()
 const uuid = require('uuid')
 
 const Task = require('./models/Task')
@@ -90,7 +90,7 @@ routes.post('/task/document/:id', multer(multerConfig).single('file'), async(req
                 documents: {
                     id: uuid.v4(),
                     key: key,
-                    url: `${webconfig.appUrl}/files/${key}`
+                    url: process.env.APP_URL
                 }
             }
         }, { safe: true, upsert: true },

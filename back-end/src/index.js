@@ -2,13 +2,13 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
-const webconfig = require('../webconfig.json')
+require('dotenv').config()
 const routes = require("./routes")
 
 const app = express();
 
 mongoose.Promise = global.Promise
-mongoose.connect(webconfig.dbconnection, {
+mongoose.connect(process.env.MONGO_DB, {
         useUnifiedTopology: true,
         useNewUrlParser: true
     })
