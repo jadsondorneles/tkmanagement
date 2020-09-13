@@ -1,0 +1,4 @@
+{
+    "appUrl": "http://localhost:3000",
+    "dbconnection": "mongodb+srv://tkmanagement:tkmanagement@cluster0.pww8x.gcp.mongodb.net/tkmanagement?retryWrites=true&w=majority"
+}
