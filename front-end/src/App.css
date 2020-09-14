@@ -1,0 +1,105 @@
+/************************************************************************
+TK Management
+Author: Jadson Aires Dorneles
+*************************************************************************/
+@import '../node_modules/typeface-poppins/index.css';
+@import './assets/css/normalize.css';
+
+:root {
+  --primary: #1c5cbf;
+  --teal: #238CC1;
+  --green: #40C488;
+  --bluelight: #43A0D8;
+  --onlygrey: #515A71;
+  --pink: #ED335F;
+  --orange: #F9B430;
+  --white: #fff;
+  --background: #f2f6f9;
+  --red: #ff7373;
+  --font: 'Poppins', sans-serif;
+}
+
+body,
+html,
+#root {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+a,
+p,
+span,
+h1,
+h2,
+h4,
+h4,
+h5,
+h6,
+button,
+div {
+    font-family: var(--font), sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    outline: none !important;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+.txt-center {
+    text-align: center !important;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.one-line-txt {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+header.MuiPaper-root.MuiAppBar-root.MuiAppBar-positionStatic.MuiAppBar-colorDefault {
+    overflow: hidden;
+    border-radius: 100px;
+    margin-top: 25px;
+    background: var(--white) !important;
+}
+
+.TabPanelBox .MuiBox-root {
+    padding: 4px;
+    margin: 19px 0 0 0;
+}
+
+[data-card="card-ok"] {
+    background: var(--white);
+}
+
+[data-class="lbl-overdue"] span.MuiTab-wrapper {
+    color: var(--red)
+}
+
+[data-card="card-overdue"] {
+    background: var(--white);
+}
+
+[data-class="lbl-fine"] span.MuiTab-wrapper {
+    color: #add800
+}
+
+[data-card="card-fine"] {
+    background: var(--white);
+}
