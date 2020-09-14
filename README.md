@@ -188,7 +188,7 @@ HTTP assertions made easy via superagent.
 
 # Front-end
 
-The TO Management WebApp was built using ReactJS. It is still in Beta. List only as tasks
+The TK Management WebApp was built using ReactJS. It is still in Beta. List only as tasks
 
 ## How to run the project
 First install NodeJS according to your O.S
