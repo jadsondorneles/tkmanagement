@@ -5,6 +5,7 @@
 ##
 
 #### API: https://tkmanagement.herokuapp.com/api/task
+#### WebApp (Beta): https://5f5ec2bada13e30999cce496--romantic-meitner-c15da4.netlify.app/
 
 ##
 
@@ -184,3 +185,27 @@ A comprehensive JavaScript testing solution. Works out of the box for most JavaS
 
 #### Supertest
 HTTP assertions made easy via superagent.
+
+# Front-end
+
+The TO Management WebApp was built using ReactJS. It is still in Beta. List only as tasks
+
+## How to run the project
+First install NodeJS according to your O.S
+Once installed open the directory in the terminal or vscode and run the following command
+
+###### `npm install`
+
+Runs the app in the development mode.
+###### `npm start`
+
+## Libraries Used
+ 
+#### Axios
+Used to make HTTP requests
+
+#### Material UI React
+Used in Drawer and Tabs
+
+#### Styled-Components
+Great for standardization in production. Allows you to use component-level styles in the application. They are written in a mixture of JavaScript and CSS.
